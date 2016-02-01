@@ -1,0 +1,31 @@
+class Coffee {
+    # Property: Holds the current size of the coffee.
+    [Uint32] $Size;
+    
+    # Property: Holds the name of the coffee's owner.
+    [String] $Owner;
+
+    # Constructor: Creates a new Coffee object, with the specified size and owner.
+    Coffee([UInt32] $NewSize, [String] $NewOwner) {
+        # Set the Coffee size
+        $this.Size = $NewSize;
+        
+        # Set the Coffee name
+        $this.Owner = $NewOwner;
+    }
+
+    # Method: Drink the specified amount of coffee.
+    # Parameter: $Amount = The amount of coffee to drink.
+    [void] Drink([UInt32] $Amount) {
+        $this.Size = $this.Size - $Amount;
+    }
+}
+
+# Create a new coffee object, with a size of 16 ounces, and 'Joe' as its owner
+$MyCoffee = New-Object Coffee -ArgumentList 16, "Joe"
+
+# Drink 10 ounces
+$MyCoffee.Drink(10)
+
+# Output the object
+$MyCoffee 
